@@ -343,4 +343,15 @@ function deepEqual(a, b) {
   return true;
 }
 
+let obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj,obj));
 
+console.log(deepEqual(obj, {here: 1, object: 2}));
+
+console.log(deepEqual(obj, {here: {is: "an"}, object:2}));
+
+//Function 16 Given an array nums, write a function to move all 0s to the end of it
+//While maintaining the relative order of the non-zero elements.
+console.log('Functino 16');
+
+/* Put your code here */
