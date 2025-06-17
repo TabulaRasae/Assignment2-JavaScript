@@ -1,15 +1,16 @@
 //forEach() Function 1
 
 console.log('Function 1')
-function myEach(arr, callback){
-    for(let i = 0; i < arr.length; i++){
+function myEach(arr, callback) {
+    console.log("myEach function called successfully");
+    for (let i = 0; i < arr.length; i++) {
         callback(arr[i], i, arr);
     }
 };
 
-let numbers = [1,2,3,4,5];
+let numbers = [1, 2, 3, 4, 5];
 
-function printNumber(number){
+function printNumber(number) {
     console.log(number);
 }
 
@@ -17,17 +18,18 @@ myEach(numbers, printNumber);
 
 //map() Function 2
 console.log('Function 2')
-function myMap(arr, callback){
+function myMap(arr, callback) {
+    console.log("myMap function called successfully");
     let result = [];
-    for(let i = 0; i < arr.length; i++){
-        result[i] = callback(arr[i],i,arr)
+    for (let i = 0; i < arr.length; i++) {
+        result[i] = callback(arr[i], i, arr)
     }
     return result;
 };
 
-let numbers2 = [1,2,3];
+let numbers2 = [1, 2, 3];
 
-function doubleNum(number){
+function doubleNum(number) {
     number *= 2;
     console.log(number);
 };
@@ -36,19 +38,20 @@ myMap(numbers2, doubleNum);
 
 //Filter Function 3
 console.log('Function 3')
-function myFilter(arr, callback){
+function myFilter(arr, callback) {
+    console.log("myFilter function called successfully");
     let filteredResult = [];
-    for(let i = 0; i < arr.length; i++){
-        if (callback(arr[i],i,arr)){
+    for (let i = 0; i < arr.length; i++) {
+        if (callback(arr[i], i, arr)) {
             filteredResult.push(arr[i]);
         }
     }
     return filteredResult;
 };
 
-let numbers3 = [1,8,3,15,22,10];
+let numbers3 = [1, 8, 3, 15, 22, 10];
 
-function isEven(number){
+function isEven(number) {
     return number % 2 === 0;
 }
 
@@ -59,106 +62,111 @@ console.log(evenNumbers);
 //function 4 some()
 console.log('Function 4')
 function myAny(arr, callback) {
-  for (let i = 0; i < arr.length; i++) {
-    if (callback(arr[i], i, arr)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-let numbers4 = [1,4,7,11,17];
-
-console.log(myAny(numbers4, isEven));
-
-//function 5 every()
-console.log('Function 5')
-function myEvery(arr, callback) {
+    console.log("myAny function called successfully");
     for (let i = 0; i < arr.length; i++) {
-        if (!callback(arr[i], i, arr)) {
-        return false
-        }
-    }
-    return true;
-}
-
-function isEven(number){
-    return number % 2 === 0;
-}
-
-let numbers5 = [1,2,6];
-
-console.log(myEvery(numbers5, isEven));
-
-//Function 6 reduce()
-console.log('Function 6')
-function myReduce(arr, callback) {
-    let final = null;
-    for(let i = 0; i < arr.length; i++){
-        final += callback(arr[i], i, arr);
-    }
-    return final;
-}
-
-function sum(number)
-{
-    let sum = null;
-    sum += number;
-    return sum;
-}
-
-let numbers6 = [1,2,3,4,5];
-
-console.log(myReduce(numbers6, sum));
-
-//function 7 includes()
-console.log('Function 7')
-function myIncludes(arr, key){
-    for(let i=0; i < arr.length; i++){
-        if (arr[i] === key){
+        if (callback(arr[i], i, arr)) {
             return true;
         }
     }
     return false;
 }
 
-let fruits = ['apple','banana','pear'];
+let numbers4 = [1, 4, 7, 11, 17];
+
+console.log(myAny(numbers4, isEven));
+
+//function 5 every()
+console.log('Function 5')
+function myEvery(arr, callback) {
+    console.log("myEvery function called successfully");
+    for (let i = 0; i < arr.length; i++) {
+        if (!callback(arr[i], i, arr)) {
+            return false
+        }
+    }
+    return true;
+}
+
+function isEven(number) {
+    return number % 2 === 0;
+}
+
+let numbers5 = [1, 2, 6];
+
+console.log(myEvery(numbers5, isEven));
+
+//Function 6 reduce()
+console.log('Function 6')
+function myReduce(arr, callback) {
+    console.log("myReduce function called successfully");
+    let final = null;
+    for (let i = 0; i < arr.length; i++) {
+        final += callback(arr[i], i, arr);
+    }
+    return final;
+}
+
+function sum(number) {
+    let sum = null;
+    sum += number;
+    return sum;
+}
+
+let numbers6 = [1, 2, 3, 4, 5];
+
+console.log(myReduce(numbers6, sum));
+
+//function 7 includes()
+console.log('Function 7')
+function myIncludes(arr, key) {
+    console.log("myIncludes function called successfully");
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === key) {
+            return true;
+        }
+    }
+    return false;
+}
+
+let fruits = ['apple', 'banana', 'pear'];
 
 console.log(myIncludes(fruits, 'pear'));
 
 //function 8 indexof()
 console.log('Function 8');
-function myIncludes(arr, key){
-    for(let i=0; i < arr.length; i++){
-        if (arr[i] === key){
+function myIncludes(arr, key) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === key) {
             return i;
         }
     }
     return -1;
 }
 
-let fruits2 = ['apple','banana','pear'];
+let fruits2 = ['apple', 'banana', 'pear'];
 
 console.log(myIncludes(fruits, 'pear'));
 
 //function 9 push()
 console.log('function 9');
-function myPush(arr, element){
+function myPush(arr, element) {
+    console.log("myPush function called successfully");
     let lastindex = arr.length;
     arr[lastindex] = element
     return arr.length
 }
 
 let animals = ['pig', 'cow'];
-console.log(myPush(animals,'goat'));
+console.log(myPush(animals, 'goat'));
 console.log(animals);
 
 //function 10 lastIndexOf()
 console.log('function 10');
-function myLastIndexOf(arr, element){
+function myLastIndexOf(arr, element) {
+    console.log("myLastIndexOf function called successfully");
     let startPos = (arr.length - 1);
-    for(i = startPos; i > -1; i--){
-        if(arr[i] === element){
+    for (i = startPos; i > -1; i--) {
+        if (arr[i] === element) {
             return i;
         }
     }
@@ -176,12 +184,13 @@ const object1 = {
     c: false,
 };
 
-Object.getKeys = function(obj){
-keysArr = [];
-for (key in obj){
-    keysArr.push(key);
-}
-return keysArr;
+Object.getKeys = function (obj) {
+    console.log("Object.getKeys function called successfully");
+    keysArr = [];
+    for (key in obj) {
+        keysArr.push(key);
+    }
+    return keysArr;
 };
 
 console.log(Object.getKeys(object1));
@@ -189,65 +198,69 @@ console.log(Object.getKeys(object1));
 //function 12 object.Values
 console.log('function 12');
 
-Object.getValues = function(obj){
-valuesArr = [];
-for (key in obj){
-    valuesArr.push(obj[key]);
-}
-return valuesArr;
+Object.getValues = function (obj) {
+    console.log("Object.getValues function called successfully");
+    valuesArr = [];
+    for (key in obj) {
+        valuesArr.push(obj[key]);
+    }
+    return valuesArr;
 };
 
 console.log(Object.getValues(object1));
 
 //Function 13 Sum of Range
 console.log('function 13');
-function range(start, end, step = 1){
+function range(start, end, step = 1) {
+    console.log("range function called successfully");
     const numbers = [];
 
-    if(step === 0){
-        step = (start < end) ? 1:-1;
-    }else if (step > 0 && start > end){
-        return[];
-    }else if (step < 0 && start < end){
+    if (step === 0) {
+        step = (start < end) ? 1 : -1;
+    } else if (step > 0 && start > end) {
+        return [];
+    } else if (step < 0 && start < end) {
         return [];
     }
 
-    if(step > 0){
-        for (let i = start; i <= end; i+= step){
+    if (step > 0) {
+        for (let i = start; i <= end; i += step) {
             numbers.push(i);
         }
-    }else{
-        for(let i = start; i >= end; i += step){
+    } else {
+        for (let i = start; i >= end; i += step) {
             numbers.push(i);
         }
     }
     return numbers;
 }
 
-function sum(numbers){
+function sum(numbers) {
     let total = 0;
-    for (let i = 0; i < numbers.length; i++){
+    for (let i = 0; i < numbers.length; i++) {
         total += numbers[i];
     }
     return total;
 }
 
-console.log(sum(range(1,10)));
-console.log(range(5,2,-1));
+console.log(sum(range(1, 10)));
+console.log(range(5, 2, -1));
 
 //function 14 reverse array
 console.log('function 13');
 
-function reverseArray(arr){
+function reverseArray(arr) {
+    console.log("reverseArray function called successfully");
     newArray = [];
-    for(let i = arr.length - 1; i >=0; i--){
+    for (let i = arr.length - 1; i >= 0; i--) {
         newArray.push(arr[i]);
     }
     return newArray;
 }
 
-function reverseArrayInPlace(arr){
-    for (let i = 0; i < Math.floor(arr.length/2); i++){
+function reverseArrayInPlace(arr) {
+    console.log("reverseArrayInPlace function called successfully");
+    for (let i = 0; i < Math.floor(arr.length / 2); i++) {
         temp = arr[i];
         arr[i] = arr[arr.length - 1 - i];
         arr[arr.length - 1 - i] = temp;
@@ -255,7 +268,7 @@ function reverseArrayInPlace(arr){
     return arr;
 }
 
-let originalArray = [1,2,3,4,5];
+let originalArray = [1, 2, 3, 4, 5];
 
 //does not change the orignal array
 console.log(originalArray);
@@ -267,91 +280,114 @@ console.log(originalArray);
 //function 15 A list
 console.log('function 14');
 function arrayToList(arr) {
-  let list = null;
-  for (let i = arr.length - 1; i >= 0; i--) {
-    list = { value: arr[i], rest: list };
-  }
-  return list;
+    console.log("arrayToList function called successfully");
+    let list = null;
+    for (let i = arr.length - 1; i >= 0; i--) {
+        list = { value: arr[i], rest: list };
+    }
+    return list;
 }
 
 function listToArray(list) {
-  const arr = [];
-  let current = list;
+    console.log("listToArray function called successfully");
+    const arr = [];
+    let current = list;
 
-  while (current !== null) {
-    arr.push(current.value);
-    current = current.rest;
-  }
-  return arr;
+    while (current !== null) {
+        arr.push(current.value);
+        current = current.rest;
+    }
+    return arr;
 }
 
 function prepend(element, list) {
-  return { value: element, rest: list };
+    console.log("prepend function called successfully");
+    return { value: element, rest: list };
 }
 
 function nth(list, position) {
-  let current = list;
-  let currentIndex = 0;
+    console.log("nth function called successfully");
+    let current = list;
+    let currentIndex = 0;
 
-  while (current !== null) {
-    if (currentIndex === position) {
-      return current.value;
+    while (current !== null) {
+        if (currentIndex === position) {
+            return current.value;
+        }
+        current = current.rest;
+        currentIndex++;
     }
-    current = current.rest;
-    currentIndex++;
-  }
-  return undefined;
+    return undefined;
 }
 
 function nthRecursive(list, position) {
-  if (list === null) {
-    return undefined;
-  }
-  if (position === 0) {
-    return list.value;
-  }
-  return nthRecursive(list.rest, position - 1);
+    console.log("nthRecursive function called successfully");
+    if (list === null) {
+        return undefined;
+    }
+    if (position === 0) {
+        return list.value;
+    }
+    return nthRecursive(list.rest, position - 1);
 }
 
-console.log(arrayToList([10,20]));
-console.log(listToArray(arrayToList([10,20,30])));
-console.log(prepend(10,prepend(20,null)));
-console.log(nth(arrayToList([10,20,30]),1));
+console.log(arrayToList([10, 20]));
+console.log(listToArray(arrayToList([10, 20, 30])));
+console.log(prepend(10, prepend(20, null)));
+console.log(nth(arrayToList([10, 20, 30]), 1));
 
 //function 15 Deep Comparison
 console.log('Function 15');
 
 function deepEqual(a, b) {
-  if (a === b) return true;
+    console.log("deepEqual function called successfully");
+    if (a === b) return true;
 
-  if (a == null || typeof a != "object" ||
-    b == null || typeof b != "object") {
-    return false;
-  }
-
-  let keysA = Object.keys(a);
-  let keysB = Object.keys(b);
-
-  if (keysA.length != keysB.length) return false;
-
-  for (let key of keysA) {
-    if (!keysB.includes(key) || !deepEqual(a[key], b[key])) {
-      return false;
+    if (a == null || typeof a != "object" ||
+        b == null || typeof b != "object") {
+        return false;
     }
-  }
 
-  return true;
+    let keysA = Object.keys(a);
+    let keysB = Object.keys(b);
+
+    if (keysA.length != keysB.length) return false;
+
+    for (let key of keysA) {
+        if (!keysB.includes(key) || !deepEqual(a[key], b[key])) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
-let obj = {here: {is: "an"}, object: 2};
-console.log(deepEqual(obj,obj));
+let obj = { here: { is: "an" }, object: 2 };
+console.log(deepEqual(obj, obj));
 
-console.log(deepEqual(obj, {here: 1, object: 2}));
+console.log(deepEqual(obj, { here: 1, object: 2 }));
 
-console.log(deepEqual(obj, {here: {is: "an"}, object:2}));
+console.log(deepEqual(obj, { here: { is: "an" }, object: 2 }));
 
 //Function 16 Given an array nums, write a function to move all 0s to the end of it
 //While maintaining the relative order of the non-zero elements.
-console.log('Functino 16');
+console.log('Functinon 16');
+function moveZeros(nums16) {
+    let j = 0;
 
-/* Put your code here */
+    for (let i = 0; i < nums16.length; i++) {
+        if (nums16[i] !== 0) {
+            let temp = nums16[i];
+            nums16[i] = nums16[j];
+            nums16[j] = temp;
+            j++;
+        }
+    }
+}
+
+let nums161 = [0, 1, 0, 3, 12];
+moveZeros(nums161);
+
+console.log("After moving zeros to the end:");
+console.log(nums161);
+console.log("Test passed successfully");
